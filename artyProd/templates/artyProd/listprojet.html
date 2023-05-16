@@ -1,0 +1,86 @@
+{% extends "artyProd/base.html" %}
+{% block content %}
+<br>
+    <div class="col-12">
+        <div class="card mb-4 mx-4">
+            <div class="card-header pb-0">
+                <div class="d-flex flex-row justify-content-between">
+                    <div>
+                        <h5 class="mb-0">Liste de projet acheve</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Libellai
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    description 
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Service
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    fichier
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in personne %}
+                        {% if i.acheve == titel %}
+                            <tr>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.libellai}}</p>
+                                </td>
+
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.description}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.Service}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0"><a href="{{i.fichier.url}}" download>download Fichier <i class="fa-solid fa-download"></i></a></p>
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-original-title="Modifier Projet" type="button" href="/artyProd/deleteProjet/{{i.id}}">Supp</a>
+                                </td>
+                            </tr>
+                        {% endif %}    
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <style>
+                    .ic{
+                        position: relative;
+                    }
+                    .ii{
+                        cursor: pointer;
+                        position: absolute;
+                        left: 0%;
+                        top: 0%;
+                        opacity: 0;
+                    }
+                    .div{
+                        display:none
+                    }
+                    img{
+                        width: 65px;
+                        height: 70px;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

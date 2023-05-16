@@ -1,0 +1,47 @@
+{% extends "artyProd/base.html" %}
+{% block div %}
+{% for i in personne %}
+<p>votre equipe est avec le numéro {{i.Equipe_id}}</p>
+{% endfor %}
+{% endblock %}
+{% block content %}
+<section id="scroll" onclick="chargement()">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                   <form method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-primary btn-xl rounded-pill mt-5" type="submit">Ajouter un projet</button>
+                   </form>
+                   {% for i in personne %}
+                   <input type="text" value="{{i.Equipe_id}}" hidden id="ahla">
+                   {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var el=document.getElementById("id_acheve")
+    el.addEventListener("change",function(){
+        const d=new Date()
+        m=d.getMonth()+1
+        if(document.getElementById("id_acheve").value=='o')
+            document.getElementById("id_date_fin").value=d.getDate()+'/'+m+'/'+d.getFullYear()
+    })
+    var da=document.getElementById("id_Equipe")
+    da.addEventListener("change",function(){
+        if(document.getElementById("id_Equipe").value!=document.getElementById("ahla").value){
+            alert("slvp saisir votre equipe coresspandant")
+            document.getElementById("id_Equipe").value=""
+        }
+    })
+    function chargement(){
+        document.getElementById("id_date_fin").setAttribute("disabled","true")
+        document.getElementById("id_date_debut").setAttribute("disabled","true")
+        document.getElementById("id_acheve").setAttribute("maxlength","1")
+    }
+</script>
+{% endblock %}

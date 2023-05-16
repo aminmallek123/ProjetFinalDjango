@@ -1,0 +1,37 @@
+{% extends "artyProd/base.html" %}
+{% block content %}
+<section id="scroll" onclick="chargement()">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                   <form method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-primary btn-xl rounded-pill mt-5" type="submit">Modifier mes données</button>
+                   </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+     var el=document.getElementById("id_acheve")
+    el.addEventListener("change",function(){
+        const d=new Date()
+        m=d.getMonth()+1
+        if(document.getElementById("id_acheve").value=='o')
+            document.getElementById("id_date_fin").value=d.getDate()+'/'+m+'/'+d.getFullYear()
+        if(document.getElementById("id_acheve").value!='o' && document.getElementById("id_acheve").value!='n'){
+            document.getElementById("id_acheve").value==""
+            alert("slvp choisir o/n")
+        }    
+    })
+    function chargement(){
+        document.getElementById("id_date_fin").setAttribute("disabled","true")
+        document.getElementById("id_date_debut").setAttribute("disabled","true")
+        document.getElementById("id_acheve").setAttribute("maxlength","1")
+        document.getElementById("id_Equipe").setAttribute("disabled","true")
+    }
+</script>
+{% endblock %}

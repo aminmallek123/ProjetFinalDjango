@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Agency - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel='stylesheet' type='text/css' media='screen' href="static/css/base.css"/>
+    {% block styles %} {% endblock %}
+    <style>label{color: aliceblue;}</style>
+    <script>
+        setTimeout(() => {
+            !(function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq.disablePushState;
+            fbq('init', '470997813790692');
+        }, 2000);
+    </script>
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="data:image/jpeg;base64,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" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Equipe</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}" target="_blank">Connexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-heading text-uppercase">Arty Production Agence </div>
+            <div >Société de production de design graphique, production audiovisuelle et conception 3D,
+                souhaite créer une application web qui expose aux internautes ses différents services. Notre objectif : "raconter votre histoire, donner du sens et créer du lien".</div>
+                <br>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Plus</a>
+        </div>
+    </header>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Services</h2>
+            </div>
+            <div class="row text-center">
+                {% for i in Service %}
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">{{i.type}}</h4>
+                    <p class="text-muted">{{i.decription}}</p>
+                    <a  href="/artyProd/detailsServise/{{i.id}}">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Portfolio</h2>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://wvue.net/files/la%20presse%20app.webp" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">MOBILE</div>
+                            <div class="portfolio-caption-subheading text-muted">Presse annonce</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 2-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://wvue.net/files/Eminence.webp" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">WEB & MOBILE</div>
+                            <div class="portfolio-caption-subheading text-muted">ERP Eminence</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 3-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="https://wvue.net/files/leo.webp" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">WEB & MOBILE</div>
+                            <div class="portfolio-caption-subheading text-muted">Leo Express</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">About</h2>
+                <h3 class="section-subheading text-muted">Equipe diversifiée et multidisciplinaire</h3>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3nGmj15fMiliLwdSfrAB_WkxIZgI5wfU3ZA&usqp=CAU"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2014-2015</h4>
+                            <h4 class="subheading">Nos humbles débuts</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Nous sommes des professionnels de l'industrie qui ont travaillé directement dans la production avec une compréhension approfondie des compétences requises pour chaque poste. Nous savons ce que vous recherchez et connaissons les qualités essentielles pour réussir dans chaque rôle.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://www.xarala.co/blog/content/images/2022/03/200121-developpeur-web.jpeg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>avril 2014</h4>
+                            <h4 class="subheading">Une agence est née</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">L'Agence About est une agence bienveillante qui fait le pont entre les individus et les compagnies, sans limitation de postes. Nous prenons en charge tout vos postes : d'une personne exécutive à la personne qui accueillera vos clients</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVdw7K7brztNnPdXlUKMV9s5rw0TL7908uhA&usqp=CAU"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>December 2015</h4>
+                            <h4 class="subheading">Transition vers le service complet</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">L'objectif principal de l'Agence About est de répondre aux besoins de nos clients dans une industrie en pénurie avec un angle original ; Cette même industrie fatiguée de se faire contacter par des département RH qui ont tendance à ne pas comprendre notre quotidien</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>
+                            Faire partie
+                            <br />
+                            De nôtre
+                            <br />
+                            Histoire!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Notre incroyable equipe</h2>
+                <h3 class="section-subheading text-muted">Une équipe est une force en mouvement, vivante et dynamique. Les membres d'une équipe sont tous différents, mais créent ensemble une nouvelle entité qui possède ses propres caractéristiques</h3>
+            </div>
+            <div class="row">
+                {% for i in equipe %}
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEAEMZ8RXfWSBnCzMLIL7yZkPExjZpHcPjJSo6hQxbzCOS6WwTnInpVNHk-C5_aQv-1yQ&usqp=CAU" alt="..." />
+                        <h4>{{i.name}}</h4>
+                        <br>
+                        <a class="btn btn-dark btn-social mx-2" href="/artyProd/team/{{i.id}}" aria-label="Parveen Anand Twitter Profile"><i class="fa-solid fa-circle-nodes"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+        </div>
+    </section>
+    <!--google map-->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.9355989712226!2d10.769580074729806!3d34.75721508018018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1301d2c1f3c2991f%3A0xab7f8817c80e9617!2sISET%20Sfax!5e0!3m2!1sfr!2stn!4v1682677261333!5m2!1sfr!2stn" width="1349" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contact Us</h2>
+                <h3 class="section-subheading text-muted">Dit que est ce tu veux!</h3>
+            </div>
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- * * SB Forms Contact Form * *-->
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- This form is pre-integrated with SB Forms.-->
+            <!-- To make this form functional, sign up at-->
+            <!-- https://startbootstrap.com/solution/contact-forms-->
+            <!-- to get an API token!-->
+            <form id="contactForm" method="post" data-sb-form-api-token="API_TOKEN">
+                {% csrf_token %}
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <label for="">Name</label>
+                            {{form.Name}}
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email address input-->
+                            <label for="">Email</label>
+                            {{form.Email}}
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <!-- Phone number input-->
+                            <label for="">Phone</label>
+                            {{form.phone}}
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <label for="">Message</label>
+                            {{form.msg}}
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit Button-->
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase"
+                        id="submitButton" type="submit">Send Message</button></div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Créé par</a>
+                    <a class="link-dark text-decoration-none" href="#!">Mohamed Amin Mallek</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Portfolio Modals-->
+    <!-- Portfolio item 1 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="https://wvue.net/files/la%20presse%20app.webp" alt="..." />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Client:</strong>
+                                        Threads
+                                    </li>
+                                    <li>
+                                        <strong>Category:</strong>
+                                        Illustration
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Fermer le projet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 2 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="https://wvue.net/files/Eminence.webp" alt="..." />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Client:</strong>
+                                        Explore
+                                    </li>
+                                    <li>
+                                        <strong>Category:</strong>
+                                        Graphic Design
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Fermer le projet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 3 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="https://wvue.net/files/leo.webp" alt="..." />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Client:</strong>
+                                        Finish
+                                    </li>
+                                    <li>
+                                        <strong>Category:</strong>
+                                        Identity
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Fermer le projet
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 4 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4.jpg" alt="..." />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Client:</strong>
+                                        Lines
+                                    </li>
+                                    <li>
+                                        <strong>Category:</strong>
+                                        Branding
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Portfolio item 5 modal popup-->
+    {% block section %} {% endblock %}
+    <!-- Portfolio item 6 modal popup-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg"
+                        alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project details-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6.jpg" alt="..." />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt
+                                    repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae,
+                                    nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>
+                                        <strong>Client:</strong>
+                                        Window
+                                    </li>
+                                    <li>
+                                        <strong>Category:</strong>
+                                        Photography
+                                    </li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal"
+                                    type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>

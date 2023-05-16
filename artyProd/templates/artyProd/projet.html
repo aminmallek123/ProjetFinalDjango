@@ -1,0 +1,9 @@
+{% extends "artyProd/base.html" %}
+{% block section %}
+{% for i in personne %}
+<ul>
+    <a href="/artyProd/acheve/{{i.Equipe_id}}"><li>Liste acheve</li></a>
+    <a href="/artyProd/encour/{{i.Equipe_id}}"><li>Liste est en cour</li></a>
+</ul>
+{% endfor %}
+{% endblock %}

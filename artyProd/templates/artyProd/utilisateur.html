@@ -1,0 +1,78 @@
+{% extends "artyProd/base.html" %}
+{% block content %}
+<br>
+    <div class="col-12">
+        <div class="card mb-4 mx-4">
+            <div class="card-header pb-0">
+                <div class="d-flex flex-row justify-content-between">
+                    <div>
+                        <h5 class="mb-0">Tout les materiels de  cuisine</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Photo utilisateur
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Nom 
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    fichier cv
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Contact
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in personne %}
+                            <tr>
+                                <td class="text-center">
+                                    <p><img src="{{i.fichier_photo.url}}" ></p>
+                                </td>
+
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.nom}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0"><a href="{{i.fichier_cv.url}}" download>download cv <i class="fa-solid fa-download"></i></a></p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0"><a href="{{i.lien_prv}}"><i class="fab fa-facebook-f"></i></a></p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <style>
+                    .ic{
+                        position: relative;
+                    }
+                    .ii{
+                        cursor: pointer;
+                        position: absolute;
+                        left: 0%;
+                        top: 0%;
+                        opacity: 0;
+                    }
+                    .div{
+                        display:none
+                    }
+                    img{
+                        width: 65px;
+                        height: 70px;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

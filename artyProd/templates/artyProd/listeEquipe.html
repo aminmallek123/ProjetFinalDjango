@@ -1,0 +1,76 @@
+{% extends "artyProd/base.html" %}
+{% block content %}
+<br>
+<a type="button" class="btn btn-primary" href="{% url 'equipe' %}">Ajout Equipe</a>
+<br>
+<br>
+    <div class="col-12">
+        <div class="card mb-4 mx-4">
+            <div class="card-header pb-0">
+                <div class="d-flex flex-row justify-content-between">
+                    <div>
+                        <h5 class="mb-0">Liste de projet acheve</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    #
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Nom
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in personne %}
+                            <tr>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.id}}</p>
+                                </td>
+
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.name}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-original-title="Modifier Projet" type="button" href="/artyProd/deletEquipe/{{i.id}}">Supp</a>
+                                </td>
+                            </tr> 
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <style>
+                    .ic{
+                        position: relative;
+                    }
+                    .ii{
+                        cursor: pointer;
+                        position: absolute;
+                        left: 0%;
+                        top: 0%;
+                        opacity: 0;
+                    }
+                    .div{
+                        display:none
+                    }
+                    img{
+                        width: 65px;
+                        height: 70px;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "artyProd/base.html" %}
+{% block content %}
+<br>
+    <div class="col-12">
+        <div class="card mb-4 mx-4">
+            <div class="card-header pb-0">
+                <div class="d-flex flex-row justify-content-between">
+                    <div>
+                        <h5 class="mb-0">Tout les materiels de  cuisine</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Prenom
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Email
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Telephon
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Message
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in contact %}
+                            <tr>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.Name}}</p>
+                                </td>
+
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0"><a href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser" target="_blank"><i class="fa-solid fa-g"></i> : {{i.Email}}</a></p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.phone}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{i.msg}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-danger" data-bs-toggle="tooltip" data-bs-original-title="Modifier Projet" href="/artyProd/contact/{{i.id}}">Supp</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <style>
+                    .ic{
+                        position: relative;
+                    }
+                    .ii{
+                        cursor: pointer;
+                        position: absolute;
+                        left: 0%;
+                        top: 0%;
+                        opacity: 0;
+                    }
+                    .div{
+                        display:none
+                    }
+                    img{
+                        width: 65px;
+                        height: 70px;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
